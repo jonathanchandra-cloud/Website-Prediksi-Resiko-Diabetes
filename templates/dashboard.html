@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diabetes Risk Predictor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        background: linear-gradient(135deg, #e0f2fe 0%, #f8fafc 100%);
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+    </style>
+  </head>
+  <body class="font-sans text-gray-800">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 shadow-md sticky top-0 z-50">
+      <div
+        class="container mx-auto px-6 py-3 flex justify-between items-center"
+      >
+        <h1 class="text-white font-semibold text-lg">Diabetes Prediction</h1>
+
+        <ul class="flex space-x-6 text-sm font-medium">
+          <li>
+            <a
+              href="{{ url_for('index') }}"
+              class="text-white hover:text-gray-200 transition"
+              >Dashboard</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ url_for('predict') }}"
+              class="text-white hover:text-gray-200 transition"
+              >Prediksi Individu</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ url_for('predict_file') }}"
+              class="text-white hover:text-gray-200 transition"
+              >Prediksi CSV</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-12 space-y-16">
+      <!-- Hero -->
+      <section class="glass rounded-3xl shadow-xl p-12 text-center">
+        <div
+          class="flex items-center justify-center w-20 h-20 bg-emerald-100 rounded-2xl mx-auto mb-6"
+        >
+          <i class="fas fa-heartbeat text-4xl text-emerald-600"></i>
+        </div>
+
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+          Diabetes Risk Predictor
+        </h1>
+
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          Sistem prediksi cerdas untuk evaluasi risiko diabetes secara cepat dan
+          akurat.
+        </p>
+
+        <div class="flex justify-center gap-6 mt-8 text-gray-500 text-sm">
+          <span class="flex items-center"
+            ><i class="fas fa-bolt text-yellow-500 mr-2"></i>Cepat</span
+          >
+          <span class="flex items-center"
+            ><i class="fas fa-check-circle text-emerald-500 mr-2"></i
+            >Akurat</span
+          >
+          <span class="flex items-center"
+            ><i class="fas fa-shield-alt text-blue-500 mr-2"></i>Aman</span
+          >
+        </div>
+      </section>
+
+      <!-- Pillars -->
+      <section class="glass rounded-3xl shadow-xl p-12">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-10">
+          Pilar Kesehatan Utama
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="p-8 bg-white rounded-xl border hover:border-emerald-500 shadow transition"
+          >
+            <div
+              class="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mx-auto mb-5"
+            >
+              <i class="fas fa-apple-alt text-2xl text-emerald-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-center mb-2">Nutrisi Seimbang</h3>
+            <p class="text-center text-gray-600 text-sm">
+              Pola makan dengan nutrisi yang lengkap dan tepat
+            </p>
+          </div>
+
+          <div
+            class="p-8 bg-white rounded-xl border hover:border-blue-500 shadow transition"
+          >
+            <div
+              class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-5"
+            >
+              <i class="fas fa-running text-2xl text-blue-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-center mb-2">Aktif Bergerak</h3>
+            <p class="text-center text-gray-600 text-sm">
+              Olahraga teratur untuk metabolisme tubuh yang optimal
+            </p>
+          </div>
+
+          <div
+            class="p-8 bg-white rounded-xl border hover:border-purple-500 shadow transition"
+          >
+            <div
+              class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-5"
+            >
+              <i class="fas fa-bed text-2xl text-purple-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-center mb-2">Istirahat Cukup</h3>
+            <p class="text-center text-gray-600 text-sm">
+              Tidur berkualitas mendukung pemulihan sel tubuh
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="glass rounded-3xl shadow-xl p-12 text-center space-y-6">
+        <h2 class="text-3xl font-bold text-gray-900">Siap Memulai?</h2>
+        <p class="text-gray-600 max-w-xl mx-auto">
+          Cek risiko diabetes Anda hanya dalam 2 menit menggunakan kecerdasan
+          buatan.
+        </p>
+
+        <div class="flex justify-center gap-6 mt-6 flex-wrap">
+          <a
+            href="{{ url_for('predict') }}"
+            class="px-8 py-4 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition inline-flex items-center"
+          >
+            <i class="fas fa-stethoscope mr-2"></i> Prediksi Individu
+          </a>
+
+          <a
+            href="{{ url_for('predict_file') }}"
+            class="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition inline-flex items-center"
+          >
+            <i class="fas fa-file-upload mr-2"></i> Prediksi CSV
+          </a>
+        </div>
+
+        <p class="text-gray-500 text-sm mt-6">
+          <i class="fas fa-info-circle mr-1"></i>
+          Hasil prediksi bukan diagnosis medis. Konsultasikan dengan dokter
+          untuk kepastian klinis.
+        </p>
+      </section>
+    </main>
+
+    <footer class="text-center py-6 text-gray-500 text-sm">
+      © 2025 Diabetes Risk Predictor | AI for Better Health
+    </footer>
+  </body>
+</html>
